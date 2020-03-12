@@ -6,7 +6,7 @@ textarea {
   flex-basis: 100%;
   height: 0;
 }
-</style></head><body><div class="container"><center><h1>Excel markdown</h1></center><div class="row flex-spaces tabs"><input id="tab1" type="radio" name="tabs" checked><label for="tab1">Input</label><input id="tab2" type="radio" name="tabs"><label for="tab2">Output</label><div class="break"></div><div class="content" id="content1"><textarea class="input" rows="10"></textarea></div><div class="content" id="content2"> <textarea class="output" rows="10" readonly></textarea></div></div></div><script src="vendor/jquery.min.js"></script><script>'use strict';
+</style></head><body><div class="container"><center><h3>Excel markdown</h3></center><div class="row flex-spaces tabs"><input id="tab1" type="radio" name="tabs" checked><label for="tab1">Input</label><input id="tab2" type="radio" name="tabs"><label for="tab2">Output</label><div class="break"></div><div class="content" id="content1"><textarea class="input" rows="10"></textarea></div><div class="content" id="content2"> <textarea class="output" rows="10" readonly></textarea></div></div></div><script src="vendor/jquery.min.js"></script><script>'use strict';
 
 $('#tab2').click(function () {
 	var data = $('.input').val().split('\n');
