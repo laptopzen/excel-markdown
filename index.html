@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><title>Excel markdown</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><link rel="stylesheet" href="vendor/paper.min.css"/><style>.content,
+textarea {
+  width: 100%;
+}
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+</style></head><body><div class="container"><center><h1>Excel markdown</h1></center><div class="row flex-spaces tabs"><input id="tab1" type="radio" name="tabs" checked><label for="tab1">Input</label><input id="tab2" type="radio" name="tabs"><label for="tab2">Output</label><div class="break"></div><div class="content" id="content1"><textarea class="input" rows="10"></textarea></div><div class="content" id="content2"> <textarea class="output" rows="10" readonly></textarea></div></div></div><script src="vendor/jquery.min.js"></script><script>'use strict';
+
+$('#tab2').click(function () {
+	var data = $('.input').val().split('\n');
+	data = data.filter(function (x) {
+		return x != '';
+	});
+	var jumlah_tab = (data[0].match(/\t/g) || []).length + 1;
+	var pemisah = '|';
+	for (var n = 0; n < jumlah_tab; ++n) {
+		pemisah += '-|';
+	}
+	data = data.map(function (x) {
+		return '| ' + x + ' |';
+	}).map(function (x) {
+		return x.replace(/\t/g, ' | ');
+	});
+	var data_hasil = [].concat(data[0], pemisah);
+	data.shift();
+	var data_final = [].concat(data_hasil, data);
+	var cetak = data_final.join('\n');
+	$('.output').val(cetak);
+});</script></body></html>

@@ -1,0 +1,31 @@
+mixin css(x)
+	link(rel='stylesheet' href=`vendor/${x}`)
+mixin js(x)
+	script(src=`vendor/${x}`)
+
+doctype html
+html
+	head
+		title Excel markdown
+		meta(charset='utf-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
+		+css('paper.min.css')
+		style
+			include:stylus style.stylus
+	body
+		.container
+			center
+				h1 Excel markdown
+			.row.flex-spaces.tabs
+				input#tab1(type='radio' name='tabs' checked)
+				label(for='tab1') Input
+				input#tab2(type='radio' name='tabs')
+				label(for='tab2') Output
+				.break
+				.content#content1
+					textarea.input(rows=10)
+				.content#content2 
+					textarea.output(rows=10 readonly)
+		+js('jquery.min.js')
+		script
+			include:babel(presets=['es2015']) app.js
